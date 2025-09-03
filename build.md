@@ -1,4 +1,8 @@
 
+mkdir -p ./erigon/execution-data
+mkdir -p ./prysm/beacon-data/
+
+
 erigon init --datadir=./erigon/execution-data ./network-configs/genesis.json
 
 
