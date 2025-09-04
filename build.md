@@ -1,15 +1,15 @@
 
-mkdir -p ./erigon/execution-data
-mkdir -p ./prysm/beacon-data/
+mkdir -p $PWD/erigon/execution-data
+mkdir -p $PWD/prysm/beacon-data/
 
 
-erigon init --datadir=./erigon/execution-data ./network-configs/genesis.json
+erigon init --datadir=$PWD/erigon/execution-data $PWD/network-configs/genesis.json
 
 
 
 erigon --networkid=3151908 \
   --log.console.verbosity=3 \
-  --datadir=./erigon/execution-data \
+  --datadir=$PWD/erigon/execution-data \
   --port=30303 \
   --http.api=eth,erigon,engine,web3,net,debug,trace,txpool,admin \
   --http.vhosts='*' \
@@ -20,7 +20,7 @@ erigon --networkid=3151908 \
   --http.addr=0.0.0.0 \
   --http.corsdomain='*' \
   --http.port=8545 \
-  --authrpc.jwtsecret=./jwt.hex \
+  --authrpc.jwtsecret=$PWD/jwt.hex \
   --authrpc.addr=0.0.0.0 \
   --authrpc.port=8551 \
   --authrpc.vhosts='*' \
@@ -32,8 +32,11 @@ erigon --networkid=3151908 \
 
 
 
-beacon-chain --accept-terms-of-use=true \
-  --datadir=./prysm/beacon-data/ \
+export USE_PRYSM_VERSION=v6.0.4
+
+
+./prysm.sh beacon-chain --accept-terms-of-use=true \
+  --datadir=$PWD/prysm/beacon-data/ \
   --execution-endpoint=http://127.0.0.1:8551 \
   --rpc-host=0.0.0.0 \
   --rpc-port=4000 \
@@ -48,27 +51,27 @@ beacon-chain --accept-terms-of-use=true \
   --verbosity=info \
   --slots-per-archive-point=32 \
   --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776 \
-  --jwt-secret=./jwt.hex \
+  --jwt-secret=$PWD/jwt.hex \
   --disable-monitoring=false \
   --monitoring-host=0.0.0.0 \
   --monitoring-port=8080 \
   --pprof --pprofaddr=0.0.0.0 \
   --pprofport=6060 \
   --p2p-static-id=true \
-  --chain-config-file=./network-configs/config.yaml \
-  --genesis-state=./network-configs/genesis.ssz \
+  --chain-config-file=$PWD/network-configs/config.yaml \
+  --genesis-state=$PWD/network-configs/genesis.ssz \
   --contract-deployment-block=0
 
 
 
-validator --accept-terms-of-use=true \
-  --chain-config-file=./network-configs/config.yaml \
+./prysm.sh validator --accept-terms-of-use=true \
+  --chain-config-file=$PWD/network-configs/config.yaml \
   --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776 \
   --beacon-rest-api-provider=http://127.0.0.1:3500 \
   --disable-monitoring=false \
   --monitoring-host=0.0.0.0 \
   --monitoring-port=8080 \
   --beacon-rpc-provider=127.0.0.1:4000 \
-  --wallet-dir=./validator-keys/prysm \
-  --wallet-password-file=./prysm-password/prysm-password.txt
+  --wallet-dir=$PWD/validator-keys/prysm \
+  --wallet-password-file=$PWD/prysm-password/prysm-password.txt
 

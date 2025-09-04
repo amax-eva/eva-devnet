@@ -1,0 +1,4 @@
+
+wget https://github.com/erigontech/erigon/releases/download/v3.0.15/erigon_v3.0.15_linux_amd64.tar.gz
+
+tar zxvf erigon_v3.0.15_linux_amd64.tar.gz
