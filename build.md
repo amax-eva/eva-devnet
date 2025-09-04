@@ -1,13 +1,21 @@
 
+1）创建目录
+
+```
 mkdir -p $PWD/erigon/execution-data/
 
 mkdir -p $PWD/prysm/beacon-data/
+```
 
+2）初始化数据
 
+```
 erigon init --datadir=$PWD/erigon/execution-data $PWD/network-configs/genesis.json
+```
 
+3）启动 erigon 执行层
 
-
+```
 erigon --networkid=3151908 \
   --log.console.verbosity=3 \
   --datadir=$PWD/erigon/execution-data \
@@ -30,9 +38,11 @@ erigon --networkid=3151908 \
   --metrics.addr=0.0.0.0 \
   --metrics.port=9001 \
   --torrent.port=42069
+```
 
+4) 启动共识层 信标
 
-
+```
 export USE_PRYSM_VERSION=v6.0.4
 
 
@@ -62,9 +72,11 @@ export USE_PRYSM_VERSION=v6.0.4
   --chain-config-file=$PWD/network-configs/config.yaml \
   --genesis-state=$PWD/network-configs/genesis.ssz \
   --contract-deployment-block=0
+```
 
+5）运行验证服务
 
-
+```
 ./prysm.sh validator --accept-terms-of-use=true \
   --chain-config-file=$PWD/network-configs/config.yaml \
   --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776 \
@@ -75,4 +87,4 @@ export USE_PRYSM_VERSION=v6.0.4
   --beacon-rpc-provider=127.0.0.1:4000 \
   --wallet-dir=$PWD/validator-keys/prysm \
   --wallet-password-file=$PWD/prysm-password/prysm-password.txt
-
+```
