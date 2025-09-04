@@ -1,0 +1,6 @@
+
+eth-genesis-state-generator beaconchain \
+  --eth1-config genesis.json \
+  --config config.yaml \
+  --mnemonics mnemonics.yaml \
+  --state-output genesis.ssz

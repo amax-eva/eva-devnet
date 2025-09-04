@@ -1,0 +1,6 @@
+- mnemonic: "bag salt push chapter airport aisle twice leisure weather eager expose fitness gold name entire symbol tool april excite tomato reason omit denial social"                                             # a 24 word BIP 39 mnemonic
+  start: 0                                                 # account index to start from
+  count: 10                                               # number of validators to generate
+  balance: 32000000000                                     # effective balance
+  wd_address: "0x9e3B04b8167F602A3B5f5E887163B2643D80e83e" # withdrawal address
+  wd_prefix: "0x02"                                        # withdrawal credentials prefix

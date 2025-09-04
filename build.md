@@ -61,7 +61,7 @@ export USE_PRYSM_VERSION=v6.0.4
   --min-sync-peers=0 \
   --verbosity=info \
   --slots-per-archive-point=32 \
-  --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776 \
+  --suggested-fee-recipient=0xf84ae3a59d9c8a08b9308ba4d3d0341135c51989 \
   --jwt-secret=$PWD/jwt.hex \
   --disable-monitoring=false \
   --monitoring-host=0.0.0.0 \
@@ -79,12 +79,12 @@ export USE_PRYSM_VERSION=v6.0.4
 ```
 ./prysm.sh validator --accept-terms-of-use=true \
   --chain-config-file=$PWD/network-configs/config.yaml \
-  --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776 \
+  --suggested-fee-recipient=0xf84ae3a59d9c8a08b9308ba4d3d0341135c51989 \
   --beacon-rest-api-provider=http://127.0.0.1:3500 \
   --disable-monitoring=false \
   --monitoring-host=0.0.0.0 \
   --monitoring-port=8080 \
   --beacon-rpc-provider=127.0.0.1:4000 \
-  --wallet-dir=$PWD/validator-keys/prysm \
+  --wallet-dir=$PWD/twowallet \
   --wallet-password-file=$PWD/prysm-password/prysm-password.txt
 ```
