@@ -1,4 +1,29 @@
 
+1）erigon 下载安装
+
 wget https://github.com/erigontech/erigon/releases/download/v3.0.15/erigon_v3.0.15_linux_amd64.tar.gz
 
 tar zxvf erigon_v3.0.15_linux_amd64.tar.gz
+
+cp erigon_v3.0.15_linux_amd64/erigon /usr/local/bin/
+
+which erigon
+    /usr/local/bin/erigon 
+
+erigon --version
+    erigon version 3.0.15-1a610b3f
+
+
+
+2）prysmctl 下载安装
+
+wget https://github.com/OffchainLabs/prysm/releases/download/v6.0.4/prysmctl-v6.0.4-linux-amd64
+
+cp ./prysmctl-v6.0.4-linux-amd64 /usr/local/bin/prysmctl
+
+chmod +x /usr/local/bin/prysmctl
+
+which prysmctl
+    /usr/local/bin/prysmctl
+
+prysmctl --help
