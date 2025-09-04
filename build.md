@@ -88,3 +88,13 @@ export USE_PRYSM_VERSION=v6.0.4
   --wallet-dir=$PWD/twowallet \
   --wallet-password-file=$PWD/prysm-password/prysm-password.txt
 ```
+
+
+
+6）问题
+
+6.1）出错时，可以清空数据
+
+```
+./prysm.sh validator --clear-db
+```
