@@ -16,7 +16,7 @@ erigon init --datadir=$PWD/erigon/execution-data $PWD/network-configs/genesis.js
 3）启动 erigon 执行层
 
 ```
-erigon --networkid=3151908 \
+erigon --networkid=2248 \
   --log.console.verbosity=3 \
   --datadir=$PWD/erigon/execution-data \
   --port=30303 \
@@ -76,6 +76,8 @@ export USE_PRYSM_VERSION=v6.0.4
 
 5）运行验证服务
 
+二个钱包
+
 ```
 ./prysm.sh validator --accept-terms-of-use=true \
   --chain-config-file=$PWD/network-configs/config.yaml \
@@ -85,7 +87,19 @@ export USE_PRYSM_VERSION=v6.0.4
   --monitoring-host=0.0.0.0 \
   --monitoring-port=8080 \
   --beacon-rpc-provider=127.0.0.1:4000 \
-  --wallet-dir=$PWD/twowallet \
+  --wallet-dir=$PWD/wallets-one \
+  --wallet-password-file=$PWD/prysm-password/prysm-password.txt
+
+
+./prysm.sh validator --accept-terms-of-use=true \
+  --chain-config-file=$PWD/network-configs/config.yaml \
+  --suggested-fee-recipient=0xf84ae3a59d9c8a08b9308ba4d3d0341135c51989 \
+  --beacon-rest-api-provider=http://127.0.0.1:3500 \
+  --disable-monitoring=false \
+  --monitoring-host=0.0.0.0 \
+  --monitoring-port=8080 \
+  --beacon-rpc-provider=127.0.0.1:4000 \
+  --wallet-dir=$PWD/wallets-two \
   --wallet-password-file=$PWD/prysm-password/prysm-password.txt
 ```
 

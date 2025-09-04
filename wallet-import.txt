@@ -5,6 +5,12 @@ https://github.com/ethereum/staking-deposit-cli?tab=readme-ov-file#existing-mnem
 
 deposit existing-mnemonic
 
+deposit existing-mnemonic --validator_start_index=0 --num_validators=10 --folder=./keys-one --chain=mainnet
+
+deposit existing-mnemonic --validator_start_index=11 --num_validators=10 --folder=./keys-two --chain=mainnet
+
 2）--key-dir 转化为 --wallet-dir
 
-validator accounts import --keys-dir=./validator_keys --wallet-dir=./twowallet
+validator accounts import --keys-dir=./keys-one/validator_keys --wallet-dir=./wallets-one
+
+validator accounts import --keys-dir=./keys-two/validator_keys --wallet-dir=./wallets-two
