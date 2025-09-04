@@ -1,5 +1,6 @@
 
-mkdir -p $PWD/erigon/execution-data
+mkdir -p $PWD/erigon/execution-data/
+
 mkdir -p $PWD/prysm/beacon-data/
 
 
