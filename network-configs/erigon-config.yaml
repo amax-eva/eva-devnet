@@ -20,3 +20,6 @@ metrics: true
 metrics.addr: "0.0.0.0"
 metrics.port: 9001
 torrent.port: 42069
+maxpeers: 20
+
+# --bootnodes=<bootnode1>,<bootnode2>
