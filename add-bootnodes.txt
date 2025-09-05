@@ -1,0 +1,17 @@
+
+查询同步状态
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' http://localhost:8545
+
+查看对等节点数量
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://localhost:8545
+
+使用 admin API 的 admin_addPeer 方法手动添加对等节点
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["enode://<node-id>@<ip>:<port>"],"id":1}' http://localhost:8545
+
+查询最新区块
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://localhost:8545
+

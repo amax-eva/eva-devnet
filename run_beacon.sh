@@ -1,0 +1,30 @@
+# export NAT_EXTIP=18.167.121.103
+# export NAT_EXTIP=18.162.236.244
+
+
+nohup ./prysm.sh beacon-chain --accept-terms-of-use=true \
+  --datadir=$PWD/prysm/beacon-data/ \
+  --execution-endpoint=http://$NAT_EXTIP:8551 \
+  --rpc-host=0.0.0.0 \
+  --rpc-port=4000 \
+  --http-host=0.0.0.0 \
+  --http-cors-domain='*' \
+  --http-port=3500 \
+  --p2p-host-ip=$NAT_EXTIP \
+  --p2p-tcp-port=13000 \
+  --p2p-udp-port=12000 \
+  --p2p-quic-port=13000 \
+  --min-sync-peers=0 \
+  --verbosity=info \
+  --slots-per-archive-point=32 \
+  --suggested-fee-recipient=0xF84AE3A59D9c8a08b9308Ba4D3d0341135c51989 \
+  --jwt-secret=$PWD/jwt.hex \
+  --disable-monitoring=false \
+  --monitoring-host=0.0.0.0 \
+  --monitoring-port=8080 \
+  --pprof --pprofaddr=0.0.0.0 \
+  --pprofport=6060 \
+  --p2p-static-id=true \
+  --chain-config-file=$PWD/network-configs/config.yaml \
+  --genesis-state=$PWD/network-configs/genesis.ssz \
+  --contract-deployment-block=0 > $PWD/beacon.log 2>&1 &

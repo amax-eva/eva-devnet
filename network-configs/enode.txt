@@ -1,0 +1,9 @@
+Started P2P networking                   
+version=67 
+self=enode://52273f553a5a4aff8a5a2846c819ec453efc46db04e0d29bf814d8cafb97d0f8d479e9a90372bbb53ce962188c3573a604183baab82d90c9a39d3a0a14619754@18.167.121.103:30304 
+name=erigon/v3.0.15-1a610b3f/linux-amd64/go1.23.11
+
+Started P2P networking                   
+version=68 
+self=enode://52273f553a5a4aff8a5a2846c819ec453efc46db04e0d29bf814d8cafb97d0f8d479e9a90372bbb53ce962188c3573a604183baab82d90c9a39d3a0a14619754@18.167.121.103:30303 
+name=erigon/v3.0.15-1a610b3f/linux-amd64/go1.23.11
