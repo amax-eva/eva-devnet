@@ -1,0 +1,22 @@
+networkid: 2248
+# datadir: "$PWD/erigon/execution-data"
+log.console.verbosity: 3
+port: 30303
+http: true
+http.api: [ "eth", "erigon", "engine", "web3", "net", "debug", "trace", "txpool", "admin" ]
+http.addr: "0.0.0.0"
+http.port: 8545
+http.vhosts: "*"
+http.corsdomain: "*"
+ws: true
+allow-insecure-unlock: true
+# nat: "extip:127.0.0.1"
+# authrpc.jwtsecret: "$PWD/jwt.hex"
+authrpc.addr: "0.0.0.0"
+authrpc.port: 8551
+authrpc.vhosts: "*"
+externalcl: true
+metrics: true
+metrics.addr: "0.0.0.0"
+metrics.port: 9001
+torrent.port: 42069

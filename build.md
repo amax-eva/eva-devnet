@@ -16,28 +16,11 @@ erigon init --datadir=$PWD/erigon/execution-data $PWD/network-configs/genesis.js
 3）启动 erigon 执行层
 
 ```
-erigon --networkid=2248 \
-  --log.console.verbosity=3 \
-  --datadir=$PWD/erigon/execution-data \
-  --port=30303 \
-  --http.api=eth,erigon,engine,web3,net,debug,trace,txpool,admin \
-  --http.vhosts='*' \
-  --ws \
-  --allow-insecure-unlock \
-  --nat=extip:127.0.0.1 \
-  --http \
-  --http.addr=0.0.0.0 \
-  --http.corsdomain='*' \
-  --http.port=8545 \
-  --authrpc.jwtsecret=$PWD/jwt.hex \
-  --authrpc.addr=0.0.0.0 \
-  --authrpc.port=8551 \
-  --authrpc.vhosts='*' \
-  --externalcl \
-  --metrics \
-  --metrics.addr=0.0.0.0 \
-  --metrics.port=9001 \
-  --torrent.port=42069
+erigon --config $PWD/network-configs/erigon-config.yaml \
+  --datadir=$PWD/erigon/execution-data
+  --authrpc.jwtsecret=$PWD/jwt.hex
+  --nat=extip:18.167.121.103 \
+  --bootnodes="enode://462f6efcc3181cda0510d6795b23078a29896917b40daa9c9b8192997810fd54e1875083650ffa95882051f1dd4c55870229855d8a1b6b123745f5d443147409@18.167.121.103:30303"
 ```
 
 4) 启动共识层 信标
@@ -61,7 +44,7 @@ export USE_PRYSM_VERSION=v6.0.4
   --min-sync-peers=0 \
   --verbosity=info \
   --slots-per-archive-point=32 \
-  --suggested-fee-recipient=0xf84ae3a59d9c8a08b9308ba4d3d0341135c51989 \
+  --suggested-fee-recipient=0xF84AE3A59D9c8a08b9308Ba4D3d0341135c51989 \
   --jwt-secret=$PWD/jwt.hex \
   --disable-monitoring=false \
   --monitoring-host=0.0.0.0 \
@@ -81,7 +64,7 @@ export USE_PRYSM_VERSION=v6.0.4
 ```
 ./prysm.sh validator --accept-terms-of-use=true \
   --chain-config-file=$PWD/network-configs/config.yaml \
-  --suggested-fee-recipient=0xf84ae3a59d9c8a08b9308ba4d3d0341135c51989 \
+  --suggested-fee-recipient=0xF84AE3A59D9c8a08b9308Ba4D3d0341135c51989 \
   --beacon-rest-api-provider=http://127.0.0.1:3500 \
   --disable-monitoring=false \
   --monitoring-host=0.0.0.0 \
@@ -93,7 +76,7 @@ export USE_PRYSM_VERSION=v6.0.4
 
 ./prysm.sh validator --accept-terms-of-use=true \
   --chain-config-file=$PWD/network-configs/config.yaml \
-  --suggested-fee-recipient=0xf84ae3a59d9c8a08b9308ba4d3d0341135c51989 \
+  --suggested-fee-recipient=0xF84AE3A59D9c8a08b9308Ba4D3d0341135c51989 \
   --beacon-rest-api-provider=http://127.0.0.1:3500 \
   --disable-monitoring=false \
   --monitoring-host=0.0.0.0 \
