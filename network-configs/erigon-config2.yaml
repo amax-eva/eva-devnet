@@ -1,0 +1,34 @@
+networkid: 2248
+# datadir: "$PWD/erigon/execution-data"
+log.console.verbosity: 3
+port: 30304
+http: true
+http.api: [ "eth", "erigon", "engine", "web3", "net", "debug", "trace", "txpool", "admin" ]
+http.addr: "0.0.0.0"
+http.port: 8547
+http.vhosts: "*"
+http.corsdomain: "*"
+ws: true
+ws.port: 8548
+allow-insecure-unlock: true
+# nat: "extip:127.0.0.1"
+nat: upnp
+# nat=: any
+# authrpc.jwtsecret: "$PWD/jwt.hex"
+authrpc.addr: "0.0.0.0"
+authrpc.port: 8552
+authrpc.vhosts: "*"
+externalcl: true
+metrics: true
+metrics.addr: "0.0.0.0"
+metrics.port: 9002
+torrent.port: 42070
+maxpeers: 20
+private.api.addr: "127.0.0.1:9092"
+txpool.api.addr: "127.0.0.1:9092"
+txpool.pricelimit: 1000
+txpool.accountslots: 16
+staticpeers: "enode://cbe566f33dc3a7a3e597c2e2bf82eae01d0e223d6dd27ce6ee4d96fdf6f7c1c8e0ee6e7e240aab13b151da5533e7f81971c23f44cbf6f3f47179944e4918070f@127.0.0.1:30303"
+trustedpeers: "enode://cbe566f33dc3a7a3e597c2e2bf82eae01d0e223d6dd27ce6ee4d96fdf6f7c1c8e0ee6e7e240aab13b151da5533e7f81971c23f44cbf6f3f47179944e4918070f@127.0.0.1:30303"
+
+# --bootnodes=<bootnode1>,<bootnode2>
