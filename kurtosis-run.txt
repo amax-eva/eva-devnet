@@ -1,0 +1,716 @@
+
+kurtosis run --enclave evanode2 github.com/ethpandaops/ethereum-package --args-file network_params.yaml
+
+
+INFO[2025-09-08T14:53:41Z] Creating a new enclave for Starlark to run inside... 
+INFO[2025-09-08T14:53:43Z] Enclave 'evanode2' created successfully      
+
+Container images used in this run:
+> badouralix/curl-jq - locally cached
+> erigontech/erigon:latest - locally cached
+> ethpandaops/ethereum-genesis-generator:5.0.6 - locally cached
+> gcr.io/offchainlabs/prysm/validator:stable - locally cached
+> gcr.io/offchainlabs/prysm/beacon-chain:stable - locally cached
+> protolambda/eth2-val-tools:latest - locally cached
+
+Printing a message
+Sanity check passed
+
+Printing a message
+Docker cache is disabled
+
+Fetching cluster type 'docker'
+Fetched cluster type 'docker'
+
+Uploading file '/static_files/jwt/jwtsecret' to files artifact 'jwt_file'
+Files with artifact name 'jwt_file' uploaded with artifact UUID '246eb192e55c4ed3833d575d5a4d5d9a'
+
+Uploading file '/static_files/keymanager/keymanager.txt' to files artifact 'keymanager_file'
+Files with artifact name 'keymanager_file' uploaded with artifact UUID 'a20e6cc65a394ce4ae09b0ea90eb81ad'
+
+Printing a message
+Read the prometheus, grafana templates
+
+Printing a message
+Launching participant network with 2 participants and the following network params struct(additional_preloaded_contracts = {}, aggregate_due_bps_gloas = 5000, altair_fork_epoch = 0, attestation_due_bps_gloas = 2500, base_fee_update_fraction_electra = 5007716, bellatrix_fork_epoch = 0, bpo_1_base_fee_update_fraction = 0, bpo_1_epoch = 18446744073709551615, bpo_1_max_blobs = 0, bpo_1_target_blobs = 0, bpo_2_base_fee_update_fraction = 0, bpo_2_epoch = 18446744073709551615, bpo_2_max_blobs = 0, bpo_2_target_blobs = 0, bpo_3_base_fee_update_fraction = 0, bpo_3_epoch = 18446744073709551615, bpo_3_max_blobs = 0, bpo_3_target_blobs = 0, bpo_4_base_fee_update_fraction = 0, bpo_4_epoch = 18446744073709551615, bpo_4_max_blobs = 0, bpo_4_target_blobs = 0, bpo_5_base_fee_update_fraction = 0, bpo_5_epoch = 18446744073709551615, bpo_5_max_blobs = 0, bpo_5_target_blobs = 0, capella_fork_epoch = 0, churn_limit_quotient = 65536, contribution_due_bps_gloas = 5000, custody_requirement = 4, data_column_sidecar_subnet_count = 128, deneb_fork_epoch = 0, deposit_contract_address = "0x00000000219ab540356cBB839Cbe05303d7705Fa", devnet_repo = "ethpandaops", eip7441_fork_epoch = 18446744073709551615, eip7805_fork_epoch = 18446744073709551615, ejection_balance = 16000000000, electra_fork_epoch = 0, eth1_follow_distance = 2048, force_snapshot_sync = False, fulu_fork_epoch = 18446744073709551615, gas_limit = 0, genesis_delay = 20, genesis_gaslimit = 60000000, gloas_fork_epoch = 18446744073709551615, inclusion_list_submission_due_bps = 6667, max_blobs_per_block_electra = 9, max_payload_size = 10485760, max_per_epoch_activation_churn_limit = 8, max_request_blob_sidecars_electra = 1152, max_request_blocks_deneb = 128, min_epochs_for_data_column_sidecars_requests = 4096, min_validator_withdrawability_delay = 256, network = "kurtosis", network_id = "3151908", network_sync_base_url = "https://snapshots.ethpandaops.io/", num_validator_keys_per_node = 64, payload_attestation_due_bps = 7500, perfect_peerdas_enabled = False, prefunded_accounts = {}, preregistered_validator_count = 0, preregistered_validator_keys_mnemonic = "giant issue aisle success illegal bike spike question tent bar rely arctic volcano long crawl hungry vocal artwork sniff fantasy very lucky have athlete", preset = "mainnet", proposer_inclusion_list_cutoff_bps = 9167, samples_per_slot = 8, seconds_per_slot = 12, shadowfork_block_height = "latest", shard_committee_period = 256, slot_duration_ms = 12000, sync_message_due_bps_gloas = 2500, target_blobs_per_block_electra = 6, validator_balance = 32, view_freeze_cutoff_bps = 7500, withdrawal_address = "0x8943545177806ED17B9F23F0a21ee5948eCaa776", withdrawal_type = "0x00")
+
+Printing a message
+Generating cl validator key stores
+
+Adding service with name 'validator-key-generation-cl-validator-keystore' and image 'protolambda/eth2-val-tools:latest'
+Service 'validator-key-generation-cl-validator-keystore' added with service UUID '3b9f54418f7744eeaab4541041f9f80a'
+
+Generating keystores
+Command returned with exit code '0' with no output
+
+Verifying whether two values meet a certain condition '=='
+Verification succeeded. Value is '0'.
+
+Storing files from service 'validator-key-generation-cl-validator-keystore' at path '/node-0-keystores/' to files artifact with name '1-prysm-erigon-0-63'
+Files with artifact name '1-prysm-erigon-0-63' uploaded with artifact UUID 'aa10965c8ac8429fa8188bf0c9e4c4d9'
+
+Storing files from service 'validator-key-generation-cl-validator-keystore' at path '/node-1-keystores/' to files artifact with name '2-prysm-erigon-64-127'
+Files with artifact name '2-prysm-erigon-64-127' uploaded with artifact UUID 'b49de5b372e14c27a242230f91296f44'
+
+Storing prysm password in a file
+Command returned with exit code '0' with no output
+
+Verifying whether two values meet a certain condition '=='
+Verification succeeded. Value is '0'.
+
+Storing files from service 'validator-key-generation-cl-validator-keystore' at path '/tmp/prysm-password.txt' to files artifact with name 'prysm-password'
+Files with artifact name 'prysm-password' uploaded with artifact UUID '5820074447814caabed093ef3bca8da5'
+
+Printing a message
+{
+	"per_node_keystores": [
+		{
+			"files_artifact_uuid": "1-prysm-erigon-0-63",
+			"nimbus_keys_relative_dirpath": "/nimbus-keys",
+			"prysm_relative_dirpath": "/prysm",
+			"raw_keys_relative_dirpath": "/keys",
+			"raw_root_dirpath": "",
+			"raw_secrets_relative_dirpath": "/secrets",
+			"teku_keys_relative_dirpath": "/teku-keys",
+			"teku_secrets_relative_dirpath": "/teku-secrets"
+		},
+		{
+			"files_artifact_uuid": "2-prysm-erigon-64-127",
+			"nimbus_keys_relative_dirpath": "/nimbus-keys",
+			"prysm_relative_dirpath": "/prysm",
+			"raw_keys_relative_dirpath": "/keys",
+			"raw_root_dirpath": "",
+			"raw_secrets_relative_dirpath": "/secrets",
+			"teku_keys_relative_dirpath": "/teku-keys",
+			"teku_secrets_relative_dirpath": "/teku-secrets"
+		}
+	],
+	"prysm_password_artifact_uuid": "prysm-password",
+	"prysm_password_relative_filepath": "prysm-password.txt"
+}
+
+Getting final genesis timestamp
+Command returned with exit code '0' and the following output: 1757343267
+
+Printing a message
+Generating EL CL data
+
+Rendering a template to a files artifact with name 'genesis-el-cl-env-file'
+Templates artifact name 'genesis-el-cl-env-file' rendered with artifact UUID '87463bfa60cc4126b17f15714fca1302'
+
+Creating genesis
+Command returned with exit code '0' and the following output:
+--------------------
++ '[' -f /data/metadata/genesis.json ']'
++ mkdir -p /data/metadata
++ source /apps/el-gen/generate_genesis.sh
++ generate_genesis /data/metadata
++ set +x
+Adding bellatrix genesis properties
+Adding capella genesis properties
+Adding deneb genesis properties
+Adding electra genesis properties
+Adding bpo genesis properties
+Adding precompile allocations...
+Adding system contracts
+  genesis contract:	0x00000000219ab540356cBB839Cbe05303d7705Fa
+  adding allocation for 0x00000000219ab540356cBB839Cbe05303d7705Fa
+  EIP-4788 contract:	0x000F3df6D732807Ef1319fB7B8bB8522d0Beac02
+  adding allocation for 0x000F3df6D732807Ef1319fB7B8bB8522d0Beac02
+  EIP-2935 contract:	0x0000F90827F1C53a10cb7A02335B175320002935
+  adding allocation for 0x0000F90827F1C53a10cb7A02335B175320002935
+  EIP-7002 contract:	0x00000961Ef480Eb55e80D19ad83579A64c007002
+  adding allocation for 0x00000961Ef480Eb55e80D19ad83579A64c007002
+  EIP-7251 contract:	0x0000BBdDc7CE488642fb579F8B00f3a590007251
+  adding allocation for 0x0000BBdDc7CE488642fb579F8B00f3a590007251
+Adding premine wallets from mnemonic...
+  adding allocation for 0x8943545177806ED17B9F23F0a21ee5948eCaa776
+  adding allocation for 0xE25583099BA105D9ec0A67f5Ae86D90e50036425
+  adding allocation for 0x614561D2d143621E126e87831AEF287678B442b8
+  adding allocation for 0xf93Ee4Cf8c6c40b329b0c0626F28333c132CF241
+  adding allocation for 0x802dCbE1B1A97554B4F50DB5119E37E8e7336417
+  adding allocation for 0xAe95d8DA9244C37CaC0a3e16BA966a8e852Bb6D6
+  adding allocation for 0x2c57d1CFC6d5f8E4182a56b4cf75421472eBAEa4
+  adding allocation for 0x741bFE4802cE1C4b5b00F9Df2F5f179A1C89171A
+  adding allocation for 0xc3913d4D8bAb4914328651C2EAE817C8b78E1f4c
+  adding allocation for 0x65D08a056c17Ae13370565B04cF77D2AfA1cB9FA
+  adding allocation for 0x3e95dFbBaF6B348396E6674C7871546dCC568e56
+  adding allocation for 0x5918b2e647464d4743601a865753e64C8059Dc4F
+  adding allocation for 0x589A698b7b7dA0Bec545177D3963A2741105C7C9
+  adding allocation for 0x4d1CB4eB7969f8806E2CaAc0cbbB71f88C8ec413
+  adding allocation for 0xF5504cE2BcC52614F121aff9b93b2001d92715CA
+  adding allocation for 0xF61E98E7D47aB884C244E39E031978E33162ff4b
+  adding allocation for 0xf1424826861ffbbD25405F5145B5E50d0F1bFc90
+  adding allocation for 0xfDCe42116f541fc8f7b0776e2B30832bD5621C85
+  adding allocation for 0xD9211042f35968820A3407ac3d80C725f8F75c14
+  adding allocation for 0xD8F3183DEF51A987222D845be228e0Bbb932C222
+  adding allocation for 0xafF0CA253b97e54440965855cec0A8a2E2399896
+Adding static premine wallets...
+Additional contracts file: /opt/additional-contracts.json
+Adding additional contracts...
+Applying allocations to genesis files...
++ '[' -f /data/metadata/genesis.ssz ']'
+++ mktemp -d -t ci-XXXXXXXXXX
++ tmp_dir=/tmp/ci-tb8GyfxZ3r
++ mkdir -p /data/metadata
++ mkdir -p /data/parsed
+++ date -u -d @1757343267 '+%Y-%b-%d %I:%M:%S %p %Z'
++ HUMAN_READABLE_TIMESTAMP='2025-Sep-08 02:54:27 PM UTC'
++ COMMENT='# 2025-Sep-08 02:54:27 PM UTC'
++ export MAX_REQUEST_BLOB_SIDECARS_ELECTRA=1152
++ MAX_REQUEST_BLOB_SIDECARS_ELECTRA=1152
++ cat /config/cl/config.yaml
++ sed '/^BLOB_SCHEDULE:/,/^[a-zA-Z]/ d'
++ sed 's/#HUMAN_TIME_PLACEHOLDER/# 2025-Sep-08 02:54:27 PM UTC/'
++ envsubst
++ add_blob_schedule /data/metadata/config.yaml
++ local config_file=/data/metadata/config.yaml
++ INCLUDE_SCHEDULE=false
++ BLOB_SCHEDULE=
++ DEFAULT_BPO_EPOCH=18446744073709551615
++ for i in {1..5}
++ var_epoch=BPO_1_EPOCH
++ var_blobs=BPO_1_MAX_BLOBS
++ '[' -n 18446744073709551615 ']'
++ '[' 18446744073709551615 '!=' 18446744073709551615 ']'
++ for i in {1..5}
++ var_epoch=BPO_2_EPOCH
++ var_blobs=BPO_2_MAX_BLOBS
++ '[' -n 18446744073709551615 ']'
++ '[' 18446744073709551615 '!=' 18446744073709551615 ']'
++ for i in {1..5}
++ var_epoch=BPO_3_EPOCH
++ var_blobs=BPO_3_MAX_BLOBS
++ '[' -n 18446744073709551615 ']'
++ '[' 18446744073709551615 '!=' 18446744073709551615 ']'
++ for i in {1..5}
++ var_epoch=BPO_4_EPOCH
++ var_blobs=BPO_4_MAX_BLOBS
++ '[' -n 18446744073709551615 ']'
++ '[' 18446744073709551615 '!=' 18446744073709551615 ']'
++ for i in {1..5}
++ var_epoch=BPO_5_EPOCH
++ var_blobs=BPO_5_MAX_BLOBS
++ '[' -n 18446744073709551615 ']'
++ '[' 18446744073709551615 '!=' 18446744073709551615 ']'
++ '[' false = true ']'
++ echo '
+BLOB_SCHEDULE: []'
++ envsubst
++ [[ mainnet == \m\i\n\i\m\a\l ]]
++ cp /tmp/ci-tb8GyfxZ3r/mnemonics.yaml /data/metadata/mnemonics.yaml
++ grep DEPOSIT_CONTRACT_ADDRESS /data/metadata/config.yaml
++ cut -d ' ' -f2
++ echo 0
++ echo enr:-Iq4QJk4WqRkjsX5c2CXtOra6HnxN-BMXnWhmhEQO9Bn9iABTJGdjUOurM7Btj1ouKaFkvTRoju5vz2GPmVON2dffQKGAX53x8JigmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk
++ '[' 0x00 == 0x00 ']'
++ export WITHDRAWAL_ADDRESS=null
++ WITHDRAWAL_ADDRESS=null
++ envsubst
++ genesis_args+=(beaconchain --config /data/metadata/config.yaml --eth1-config /data/metadata/genesis.json --mnemonics $tmp_dir/mnemonics.yaml --state-output /data/metadata/genesis.ssz --json-output /data/parsed/parsedConsensusGenesis.json)
++ [[ '' != '' ]]
++ [[ '' != '' ]]
++ '[' -z '' ']'
++ /usr/local/bin/eth-genesis-state-generator beaconchain --config /data/metadata/config.yaml --eth1-config /data/metadata/genesis.json --mnemonics /tmp/ci-tb8GyfxZ3r/mnemonics.yaml --state-output /data/metadata/genesis.ssz --json-output /data/parsed/parsedConsensusGenesis.json
+time="2025-09-08T14:53:54Z" level=info msg="eth-beacon-genesis version: git-3f860cf"
+time="2025-09-08T14:53:54Z" level=info msg="loaded execution genesis. chainid: 3151908"
+time="2025-09-08T14:53:54Z" level=info msg="loaded consensus config. genesis fork version: 0x10000038"
+time="2025-09-08T14:53:54Z" level=info msg="processing mnemonic 0, for 128 validators"
+time="2025-09-08T14:53:54Z" level=info msg="...validator 100/128"
+time="2025-09-08T14:53:54Z" level=info msg="loaded 128 validators. total balance: 4096 ETH"
+time="2025-09-08T14:53:54Z" level=info msg="genesis version: electra"
+time="2025-09-08T14:53:54Z" level=info msg="genesis time: 1757343267"
+time="2025-09-08T14:53:54Z" level=info msg="genesis validators root: 0xd1ec305b97bf6336571c2348e4a8bf173684b0cdb7e55f7e6554d51f8478b5a3"
+time="2025-09-08T14:53:54Z" level=info msg="successfully built genesis state."
+time="2025-09-08T14:53:54Z" level=info msg="serialized genesis state to SSZ file: /data/metadata/genesis.ssz"
+serialized genesis state to JSON file: /data/parsed/parsedConsensusGenesis.json
++ echo 'Genesis args: beaconchain' --config /data/metadata/config.yaml --eth1-config /data/metadata/genesis.json --mnemonics /tmp/ci-tb8GyfxZ3r/mnemonics.yaml --state-output /data/metadata/genesis.ssz --json-output /data/parsed/parsedConsensusGenesis.json
+Genesis args: beaconchain --config /data/metadata/config.yaml --eth1-config /data/metadata/genesis.json --mnemonics /tmp/ci-tb8GyfxZ3r/mnemonics.yaml --state-output /data/metadata/genesis.ssz --json-output /data/parsed/parsedConsensusGenesis.json
+++ jq -r .latest_execution_payload_header.block_number /data/parsed/parsedConsensusGenesis.json
+Genesis block number: 0
++ echo 'Genesis block number: 0'
+++ jq -r .latest_execution_payload_header.block_hash /data/parsed/parsedConsensusGenesis.json
+Genesis block hash: 0x3a6c452f780092b7a571c2142f444fedf69dc42da5f799d1bd8ffcf62e3a5ef6
++ echo 'Genesis block hash: 0x3a6c452f780092b7a571c2142f444fedf69dc42da5f799d1bd8ffcf62e3a5ef6'
++ jq -r .eth1_data.block_hash /data/parsed/parsedConsensusGenesis.json
++ tr -d '\n'
++ jq -r .genesis_validators_root /data/parsed/parsedConsensusGenesis.json
++ tr -d '\n'
++ gen_shared_files
++ set -x
++ mkdir -p /data/metadata
++ '[' -f /data/jwt/jwtsecret ']'
++ mkdir -p /data/jwt
+++ openssl rand -hex 32
+++ tr -d '\n'
++ echo -n 0xab3fa32359073d99ae6a06f9933aae929450bfbfd33a723c517e434b4f7af5a7
++ '[' -f /data/metadata/genesis.json ']'
+++ cat /data/metadata/genesis.json
+++ jq -r '.config.terminalTotalDifficulty | tostring'
++ terminalTotalDifficulty=0
++ sed -i 's/TERMINAL_TOTAL_DIFFICULTY:.*/TERMINAL_TOTAL_DIFFICULTY: 0/' /data/metadata/config.yaml
++ '[' false = true ']'
+
+--------------------
+
+Reading genesis validators root
+Command returned with exit code '0' and the following output: 0xd1ec305b97bf6336571c2348e4a8bf173684b0cdb7e55f7e6554d51f8478b5a3
+
+Reading osaka time from genesis
+Command returned with exit code '0' and the following output: null
+
+Check if osaka time is enabled (not false)
+Command returned with exit code '0' and the following output:
+--------------------
+false
+
+--------------------
+
+Adding service with name 'el-1-erigon-prysm' and image 'erigontech/erigon:latest'
+Service 'el-1-erigon-prysm' added with service UUID '866410ecefa34ae58f0f77a485a37c49'
+
+Waiting for at most '30m0s' for service 'el-1-erigon-prysm' to reach a certain state
+Wait took 1 tries (10.319401ms in total). Assertion passed with following:
+Request had response code '200' and body "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"id\":\"59587920764c45ec8a66524f6255f6034b76dfaab683af900633d41f6aaf6708\",\"name\":\"erigon/v3.0.15-1a610b3f/linux-amd64/go1.23.11\",\"enode\":\"enode://b7b9313ca0ca830f3493920118c73c0f66496761d1d55cf498a55361f2074983ec0f825613fdcfa9143b106732a1e02e9d4482e778269359f957f02c59360f47@172.16.0.11:30303\",\"enr\":\"enr:-Je4QPzN-EWuuxBz_z-dR-VbbmNL_6BXRVxJXFM_TfJr7bH_QEGSgo6ggQ7LfzoJW8Bo2jLtiKGBi50uD2HrCSMkdjMFg2V0aMfGhEy8g_GAgmlkgnY0gmlwhKwQAAuJc2VjcDI1NmsxoQO3uTE8oMqDDzSTkgEYxzwPZklnYdHVXPSYpVNh8gdJg4N0Y3CCdl-DdWRwgnZf\",\"ip\":\"enode://b7b9313ca0ca830f3493920118c73c0f66496761d1d55cf498a55361f2074983ec0f825613fdcfa9143b106732a1e02e9d4482e778269359f957f02c59360f47@172.16.0.11:30303\",\"ports\":{\"discovery\":30303,\"listener\":30303},\"listenAddr\":\"[::]:30303\",\"protocols\":{\"eth\":{\"network\":3151908,\"difficulty\":0,\"genesis\":\"0x3a6c452f780092b7a571c2142f444fedf69dc42da5f799d1bd8ffcf62e3a5ef6\",\"config\":{\"chainName\":\"\",\"chainId\":3151908,\"homesteadBlock\":0,\"eip150Block\":0,\"eip155Block\":0,\"byzantiumBlock\":0,\"constantinopleBlock\":0,\"petersburgBlock\":0,\"istanbulBlock\":0,\"berlinBlock\":0,\"londonBlock\":0,\"terminalTotalDifficulty\":0,\"terminalTotalDifficultyPassed\":true,\"mergeNetsplitBlock\":0,\"shanghaiTime\":0,\"cancunTime\":0,\"pragueTime\":0,\"blobSchedule\":{\"cancun\":{\"target\":3,\"max\":6,\"baseFeeUpdateFraction\":3338477},\"prague\":{\"target\":6,\"max\":9,\"baseFeeUpdateFraction\":5007716}},\"depositContractAddress\":\"0x00000000219ab540356cbb839cbe05303d7705fa\"},\"head\":\"0x3a6c452f780092b7a571c2142f444fedf69dc42da5f799d1bd8ffcf62e3a5ef6\"}}}}\n", with extracted fields:
+'extract.enr': "enr:-Je4QPzN-EWuuxBz_z-dR-VbbmNL_6BXRVxJXFM_TfJr7bH_QEGSgo6ggQ7LfzoJW8Bo2jLtiKGBi50uD2HrCSMkdjMFg2V0aMfGhEy8g_GAgmlkgnY0gmlwhKwQAAuJc2VjcDI1NmsxoQO3uTE8oMqDDzSTkgEYxzwPZklnYdHVXPSYpVNh8gdJg4N0Y3CCdl-DdWRwgnZf"
+'extract.enode': "enode://b7b9313ca0ca830f3493920118c73c0f66496761d1d55cf498a55361f2074983ec0f825613fdcfa9143b106732a1e02e9d4482e778269359f957f02c59360f47@172.16.0.11:30303"
+
+Adding '1' services with names 'el-2-erigon-prysm'
+Successfully added the following '1' services:
+  Service 'el-2-erigon-prysm' added with UUID 'af0ac8cae2ec467ca4a71a279aad4294'
+
+Waiting for at most '30m0s' for service 'el-2-erigon-prysm' to reach a certain state
+Wait took 1 tries (11.6348ms in total). Assertion passed with following:
+Request had response code '200' and body "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"id\":\"97d93ce19b2d5bb29440f494f1cc3e3f2458298348b7c95f9b97db22b5094300\",\"name\":\"erigon/v3.0.15-1a610b3f/linux-amd64/go1.23.11\",\"enode\":\"enode://9a6e53473786c06845e4bec2c2850c6d2ef76eb264e27372378ecef9c19a48e0cc7a8ac9f1366eb54f66f1cc11a3cf962742ec07f6a59f6e94d045a4c9a2f74d@172.16.0.12:30303\",\"enr\":\"enr:-Je4QOx_leauXbr6kH39EEdB34ZzkmOvPPuQ2eq3JfaGt16SeHabsd_kcVAj0-vlmUSYh6OCeDAmWs76FyOdC6IjiZIFg2V0aMfGhEy8g_GAgmlkgnY0gmlwhKwQAAyJc2VjcDI1NmsxoQOablNHN4bAaEXkvsLChQxtLvdusmTic3I3js75wZpI4IN0Y3CCdl-DdWRwgnZf\",\"ip\":\"enode://9a6e53473786c06845e4bec2c2850c6d2ef76eb264e27372378ecef9c19a48e0cc7a8ac9f1366eb54f66f1cc11a3cf962742ec07f6a59f6e94d045a4c9a2f74d@172.16.0.12:30303\",\"ports\":{\"discovery\":30303,\"listener\":30303},\"listenAddr\":\"[::]:30303\",\"protocols\":{\"eth\":{\"network\":3151908,\"difficulty\":0,\"genesis\":\"0x3a6c452f780092b7a571c2142f444fedf69dc42da5f799d1bd8ffcf62e3a5ef6\",\"config\":{\"chainName\":\"\",\"chainId\":3151908,\"homesteadBlock\":0,\"eip150Block\":0,\"eip155Block\":0,\"byzantiumBlock\":0,\"constantinopleBlock\":0,\"petersburgBlock\":0,\"istanbulBlock\":0,\"berlinBlock\":0,\"londonBlock\":0,\"terminalTotalDifficulty\":0,\"terminalTotalDifficultyPassed\":true,\"mergeNetsplitBlock\":0,\"shanghaiTime\":0,\"cancunTime\":0,\"pragueTime\":0,\"blobSchedule\":{\"cancun\":{\"target\":3,\"max\":6,\"baseFeeUpdateFraction\":3338477},\"prague\":{\"target\":6,\"max\":9,\"baseFeeUpdateFraction\":5007716}},\"depositContractAddress\":\"0x00000000219ab540356cbb839cbe05303d7705fa\"},\"head\":\"0x3a6c452f780092b7a571c2142f444fedf69dc42da5f799d1bd8ffcf62e3a5ef6\"}}}}\n", with extracted fields:
+'extract.enr': "enr:-Je4QOx_leauXbr6kH39EEdB34ZzkmOvPPuQ2eq3JfaGt16SeHabsd_kcVAj0-vlmUSYh6OCeDAmWs76FyOdC6IjiZIFg2V0aMfGhEy8g_GAgmlkgnY0gmlwhKwQAAyJc2VjcDI1NmsxoQOablNHN4bAaEXkvsLChQxtLvdusmTic3I3js75wZpI4IN0Y3CCdl-DdWRwgnZf"
+'extract.enode': "enode://9a6e53473786c06845e4bec2c2850c6d2ef76eb264e27372378ecef9c19a48e0cc7a8ac9f1366eb54f66f1cc11a3cf962742ec07f6a59f6e94d045a4c9a2f74d@172.16.0.12:30303"
+
+Printing a message
+Successfully added 2 EL participants
+
+Printing a message
+Launching CL network
+
+Adding service with name 'cl-1-prysm-erigon' and image 'gcr.io/offchainlabs/prysm/beacon-chain:stable'
+Service 'cl-1-prysm-erigon' added with service UUID '86dab968b2fb4a9a801b4d50c453df26'
+
+Running 'GET' request on service 'cl-1-prysm-erigon'
+Request had response code '200' and body "{\"data\":{\"peer_id\":\"16Uiu2HAmHejNTGjatbnBpHY7oWjs3Kx7YTKUZdATQChx2fceLpaZ\",\"enr\":\"enr:-Mq4QJFJrXCVD8mHZWqveYz-EePM5RJ7RFhUicbzgNhBFUlhKDZd5drpEWd_Xnd0egeGLT9KkxZ_0cIz49_wi1isa-aGAZkp0eUWh2F0dG5ldHOIAAAAAAAAMACEZXRoMpDRHCV2cAAAOP__________gmlkgnY0gmlwhKwQAA2EcXVpY4IyyIlzZWNwMjU2azGhA0o5fywqbCYEuwUoO9bE_2904hQlnc75hhz8-V_BAT1eiHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g\",\"p2p_addresses\":[\"/ip4/172.16.0.13/tcp/13000/p2p/16Uiu2HAmHejNTGjatbnBpHY7oWjs3Kx7YTKUZdATQChx2fceLpaZ\",\"/ip4/172.16.0.13/udp/13000/quic-v1/p2p/16Uiu2HAmHejNTGjatbnBpHY7oWjs3Kx7YTKUZdATQChx2fceLpaZ\"],\"discovery_addresses\":[\"/ip4/172.16.0.13/udp/12000/p2p/16Uiu2HAmHejNTGjatbnBpHY7oWjs3Kx7YTKUZdATQChx2fceLpaZ\"],\"metadata\":{\"seq_number\":\"1\",\"attnets\":\"0x0000000000003000\"}}}\n", with extracted fields:
+'extract.multiaddr': "/ip4/172.16.0.13/tcp/13000/p2p/16Uiu2HAmHejNTGjatbnBpHY7oWjs3Kx7YTKUZdATQChx2fceLpaZ"
+'extract.peer_id': "16Uiu2HAmHejNTGjatbnBpHY7oWjs3Kx7YTKUZdATQChx2fceLpaZ"
+'extract.enr': "enr:-Mq4QJFJrXCVD8mHZWqveYz-EePM5RJ7RFhUicbzgNhBFUlhKDZd5drpEWd_Xnd0egeGLT9KkxZ_0cIz49_wi1isa-aGAZkp0eUWh2F0dG5ldHOIAAAAAAAAMACEZXRoMpDRHCV2cAAAOP__________gmlkgnY0gmlwhKwQAA2EcXVpY4IyyIlzZWNwMjU2azGhA0o5fywqbCYEuwUoO9bE_2904hQlnc75hhz8-V_BAT1eiHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g"
+
+Adding '1' services with names 'cl-2-prysm-erigon'
+Successfully added the following '1' services:
+  Service 'cl-2-prysm-erigon' added with UUID 'fdec0d08d11b44e4b0197bb7045d1feb'
+
+Running 'GET' request on service 'cl-2-prysm-erigon'
+Request had response code '200' and body "{\"data\":{\"peer_id\":\"16Uiu2HAmEf37vBHbJkSnwMJ728BJFgQPaFdFjet99vSEVDZJV1oS\",\"enr\":\"enr:-Mq4QMzPhCa1RTVoOID-llz3Vb2EfPN0wKByEsnEf-5dBdNwFB5TQY2ZMPk6QJ_prpfQjui6VGaOw2n-1xLSyijSwlWGAZkp0fYNh2F0dG5ldHOIAAAAAAMAAACEZXRoMpDRHCV2cAAAOP__________gmlkgnY0gmlwhKwQAA6EcXVpY4IyyIlzZWNwMjU2azGhAx26gVmfYMMf4TCnSIGs3UbjlKQb3zhYwJW-4YsD-_T1iHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g\",\"p2p_addresses\":[\"/ip4/172.16.0.14/tcp/13000/p2p/16Uiu2HAmEf37vBHbJkSnwMJ728BJFgQPaFdFjet99vSEVDZJV1oS\",\"/ip4/172.16.0.14/udp/13000/quic-v1/p2p/16Uiu2HAmEf37vBHbJkSnwMJ728BJFgQPaFdFjet99vSEVDZJV1oS\"],\"discovery_addresses\":[\"/ip4/172.16.0.14/udp/12000/p2p/16Uiu2HAmEf37vBHbJkSnwMJ728BJFgQPaFdFjet99vSEVDZJV1oS\"],\"metadata\":{\"seq_number\":\"1\",\"attnets\":\"0x0000000003000000\"}}}\n", with extracted fields:
+'extract.peer_id': "16Uiu2HAmEf37vBHbJkSnwMJ728BJFgQPaFdFjet99vSEVDZJV1oS"
+'extract.enr': "enr:-Mq4QMzPhCa1RTVoOID-llz3Vb2EfPN0wKByEsnEf-5dBdNwFB5TQY2ZMPk6QJ_prpfQjui6VGaOw2n-1xLSyijSwlWGAZkp0fYNh2F0dG5ldHOIAAAAAAMAAACEZXRoMpDRHCV2cAAAOP__________gmlkgnY0gmlwhKwQAA6EcXVpY4IyyIlzZWNwMjU2azGhAx26gVmfYMMf4TCnSIGs3UbjlKQb3zhYwJW-4YsD-_T1iHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g"
+'extract.multiaddr': "/ip4/172.16.0.14/tcp/13000/p2p/16Uiu2HAmEf37vBHbJkSnwMJ728BJFgQPaFdFjet99vSEVDZJV1oS"
+
+Printing a message
+Successfully added 2 CL participants
+
+Printing a message
+Start adding validators for participant #1
+
+Printing a message
+Using separate validator client for participant #1
+
+Printing a message
+Successfully added 2 CL participants
+
+Printing a message
+Start adding validators for participant #2
+
+Printing a message
+Using separate validator client for participant #2
+
+Adding '2' services with names 'vc-1-erigon-prysm,vc-2-erigon-prysm'
+Successfully added the following '2' services:
+  Service 'vc-1-erigon-prysm' added with UUID 'a189d67d7f5f45118fa636a03481d101'
+  Service 'vc-2-erigon-prysm' added with UUID 'ffe570c3e9664355a25d18b749784467'
+
+Printing a message
+NODE JSON RPC URI: '172.16.0.11:8545'
+
+Rendering a template to a files artifact with name 'validator-ranges'
+Templates artifact name 'validator-ranges' rendered with artifact UUID '28bf109db0f242c89468333f41b8b676'
+
+Starlark code successfully run. Output was:
+{
+	"all_participants": [
+		{
+			"cl_context": {
+				"beacon_grpc_url": "172.16.0.13:4000",
+				"beacon_http_url": "http://172.16.0.13:3500",
+				"beacon_service_name": "cl-1-prysm-erigon",
+				"cl_nodes_metrics_info": [
+					{
+						"config": {
+							"labels": null,
+							"scrape_interval": "15s"
+						},
+						"name": "cl-1-prysm-erigon",
+						"path": "/metrics",
+						"url": "172.16.0.13:8080"
+					}
+				],
+				"client_name": "prysm",
+				"enr": "enr:-Mq4QJFJrXCVD8mHZWqveYz-EePM5RJ7RFhUicbzgNhBFUlhKDZd5drpEWd_Xnd0egeGLT9KkxZ_0cIz49_wi1isa-aGAZkp0eUWh2F0dG5ldHOIAAAAAAAAMACEZXRoMpDRHCV2cAAAOP__________gmlkgnY0gmlwhKwQAA2EcXVpY4IyyIlzZWNwMjU2azGhA0o5fywqbCYEuwUoO9bE_2904hQlnc75hhz8-V_BAT1eiHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g",
+				"http_port": 3500,
+				"ip_addr": "172.16.0.13",
+				"multiaddr": "/ip4/172.16.0.13/tcp/13000/p2p/16Uiu2HAmHejNTGjatbnBpHY7oWjs3Kx7YTKUZdATQChx2fceLpaZ",
+				"peer_id": "16Uiu2HAmHejNTGjatbnBpHY7oWjs3Kx7YTKUZdATQChx2fceLpaZ",
+				"snooper_el_engine_context": null,
+				"snooper_enabled": false,
+				"supernode": false,
+				"validator_keystore_files_artifact_uuid": "1-prysm-erigon-0-63"
+			},
+			"cl_type": "prysm",
+			"el_context": {
+				"client_name": "erigon",
+				"el_metrics_info": [
+					{
+						"config": {
+							"labels": null,
+							"scrape_interval": "15s"
+						},
+						"name": "el-1-erigon-prysm",
+						"path": "/metrics",
+						"url": "172.16.0.11:9001"
+					}
+				],
+				"engine_rpc_port_num": 8551,
+				"enode": "enode://b7b9313ca0ca830f3493920118c73c0f66496761d1d55cf498a55361f2074983ec0f825613fdcfa9143b106732a1e02e9d4482e778269359f957f02c59360f47@172.16.0.11:30303",
+				"enr": "enr:-Je4QPzN-EWuuxBz_z-dR-VbbmNL_6BXRVxJXFM_TfJr7bH_QEGSgo6ggQ7LfzoJW8Bo2jLtiKGBi50uD2HrCSMkdjMFg2V0aMfGhEy8g_GAgmlkgnY0gmlwhKwQAAuJc2VjcDI1NmsxoQO3uTE8oMqDDzSTkgEYxzwPZklnYdHVXPSYpVNh8gdJg4N0Y3CCdl-DdWRwgnZf",
+				"ip_addr": "172.16.0.11",
+				"rpc_http_url": "http://172.16.0.11:8545",
+				"rpc_port_num": 8545,
+				"service_name": "el-1-erigon-prysm",
+				"ws_port_num": 8545,
+				"ws_url": "ws://172.16.0.11:8545"
+			},
+			"el_type": "erigon",
+			"ethereum_metrics_exporter_context": null,
+			"remote_signer_context": null,
+			"remote_signer_type": "web3signer",
+			"snooper_beacon_context": null,
+			"snooper_el_engine_context": null,
+			"snooper_el_rpc_context": null,
+			"vc_context": {
+				"client_name": "prysm",
+				"metrics_info": {
+					"config": {
+						"labels": null,
+						"scrape_interval": "15s"
+					},
+					"name": "vc-1-erigon-prysm",
+					"path": "/metrics",
+					"url": "172.16.0.15:8080"
+				},
+				"service_name": "vc-1-erigon-prysm"
+			},
+			"vc_type": "prysm",
+			"xatu_sentry_context": null
+		},
+		{
+			"cl_context": {
+				"beacon_grpc_url": "172.16.0.14:4000",
+				"beacon_http_url": "http://172.16.0.14:3500",
+				"beacon_service_name": "cl-2-prysm-erigon",
+				"cl_nodes_metrics_info": [
+					{
+						"config": {
+							"labels": null,
+							"scrape_interval": "15s"
+						},
+						"name": "cl-2-prysm-erigon",
+						"path": "/metrics",
+						"url": "172.16.0.14:8080"
+					}
+				],
+				"client_name": "prysm",
+				"enr": "enr:-Mq4QMzPhCa1RTVoOID-llz3Vb2EfPN0wKByEsnEf-5dBdNwFB5TQY2ZMPk6QJ_prpfQjui6VGaOw2n-1xLSyijSwlWGAZkp0fYNh2F0dG5ldHOIAAAAAAMAAACEZXRoMpDRHCV2cAAAOP__________gmlkgnY0gmlwhKwQAA6EcXVpY4IyyIlzZWNwMjU2azGhAx26gVmfYMMf4TCnSIGs3UbjlKQb3zhYwJW-4YsD-_T1iHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g",
+				"http_port": 3500,
+				"ip_addr": "172.16.0.14",
+				"multiaddr": "/ip4/172.16.0.14/tcp/13000/p2p/16Uiu2HAmEf37vBHbJkSnwMJ728BJFgQPaFdFjet99vSEVDZJV1oS",
+				"peer_id": "16Uiu2HAmEf37vBHbJkSnwMJ728BJFgQPaFdFjet99vSEVDZJV1oS",
+				"snooper_el_engine_context": null,
+				"snooper_enabled": false,
+				"supernode": false,
+				"validator_keystore_files_artifact_uuid": "2-prysm-erigon-64-127"
+			},
+			"cl_type": "prysm",
+			"el_context": {
+				"client_name": "erigon",
+				"el_metrics_info": [
+					{
+						"config": {
+							"labels": null,
+							"scrape_interval": "15s"
+						},
+						"name": "el-2-erigon-prysm",
+						"path": "/metrics",
+						"url": "172.16.0.12:9001"
+					}
+				],
+				"engine_rpc_port_num": 8551,
+				"enode": "enode://9a6e53473786c06845e4bec2c2850c6d2ef76eb264e27372378ecef9c19a48e0cc7a8ac9f1366eb54f66f1cc11a3cf962742ec07f6a59f6e94d045a4c9a2f74d@172.16.0.12:30303",
+				"enr": "enr:-Je4QOx_leauXbr6kH39EEdB34ZzkmOvPPuQ2eq3JfaGt16SeHabsd_kcVAj0-vlmUSYh6OCeDAmWs76FyOdC6IjiZIFg2V0aMfGhEy8g_GAgmlkgnY0gmlwhKwQAAyJc2VjcDI1NmsxoQOablNHN4bAaEXkvsLChQxtLvdusmTic3I3js75wZpI4IN0Y3CCdl-DdWRwgnZf",
+				"ip_addr": "172.16.0.12",
+				"rpc_http_url": "http://172.16.0.12:8545",
+				"rpc_port_num": 8545,
+				"service_name": "el-2-erigon-prysm",
+				"ws_port_num": 8545,
+				"ws_url": "ws://172.16.0.12:8545"
+			},
+			"el_type": "erigon",
+			"ethereum_metrics_exporter_context": null,
+			"remote_signer_context": null,
+			"remote_signer_type": "web3signer",
+			"snooper_beacon_context": null,
+			"snooper_el_engine_context": null,
+			"snooper_el_rpc_context": null,
+			"vc_context": {
+				"client_name": "prysm",
+				"metrics_info": {
+					"config": {
+						"labels": null,
+						"scrape_interval": "15s"
+					},
+					"name": "vc-2-erigon-prysm",
+					"path": "/metrics",
+					"url": "172.16.0.16:8080"
+				},
+				"service_name": "vc-2-erigon-prysm"
+			},
+			"vc_type": "prysm",
+			"xatu_sentry_context": null
+		}
+	],
+	"final_genesis_timestamp": "1757343267",
+	"genesis_validators_root": "0xd1ec305b97bf6336571c2348e4a8bf173684b0cdb7e55f7e6554d51f8478b5a3",
+	"network_id": "3151908",
+	"network_params": {
+		"additional_preloaded_contracts": {},
+		"aggregate_due_bps_gloas": 5000,
+		"altair_fork_epoch": 0,
+		"attestation_due_bps_gloas": 2500,
+		"base_fee_update_fraction_electra": 5007716,
+		"bellatrix_fork_epoch": 0,
+		"bpo_1_base_fee_update_fraction": 0,
+		"bpo_1_epoch": 18446744073709551615,
+		"bpo_1_max_blobs": 0,
+		"bpo_1_target_blobs": 0,
+		"bpo_2_base_fee_update_fraction": 0,
+		"bpo_2_epoch": 18446744073709551615,
+		"bpo_2_max_blobs": 0,
+		"bpo_2_target_blobs": 0,
+		"bpo_3_base_fee_update_fraction": 0,
+		"bpo_3_epoch": 18446744073709551615,
+		"bpo_3_max_blobs": 0,
+		"bpo_3_target_blobs": 0,
+		"bpo_4_base_fee_update_fraction": 0,
+		"bpo_4_epoch": 18446744073709551615,
+		"bpo_4_max_blobs": 0,
+		"bpo_4_target_blobs": 0,
+		"bpo_5_base_fee_update_fraction": 0,
+		"bpo_5_epoch": 18446744073709551615,
+		"bpo_5_max_blobs": 0,
+		"bpo_5_target_blobs": 0,
+		"capella_fork_epoch": 0,
+		"churn_limit_quotient": 65536,
+		"contribution_due_bps_gloas": 5000,
+		"custody_requirement": 4,
+		"data_column_sidecar_subnet_count": 128,
+		"deneb_fork_epoch": 0,
+		"deposit_contract_address": "0x00000000219ab540356cBB839Cbe05303d7705Fa",
+		"devnet_repo": "ethpandaops",
+		"eip7441_fork_epoch": 18446744073709551615,
+		"eip7805_fork_epoch": 18446744073709551615,
+		"ejection_balance": 16000000000,
+		"electra_fork_epoch": 0,
+		"eth1_follow_distance": 2048,
+		"force_snapshot_sync": false,
+		"fulu_fork_epoch": 18446744073709551615,
+		"gas_limit": 0,
+		"genesis_delay": 20,
+		"genesis_gaslimit": 60000000,
+		"gloas_fork_epoch": 18446744073709551615,
+		"inclusion_list_submission_due_bps": 6667,
+		"max_blobs_per_block_electra": 9,
+		"max_payload_size": 10485760,
+		"max_per_epoch_activation_churn_limit": 8,
+		"max_request_blob_sidecars_electra": 1152,
+		"max_request_blocks_deneb": 128,
+		"min_epochs_for_data_column_sidecars_requests": 4096,
+		"min_validator_withdrawability_delay": 256,
+		"network": "kurtosis",
+		"network_id": "3151908",
+		"network_sync_base_url": "https://snapshots.ethpandaops.io/",
+		"num_validator_keys_per_node": 64,
+		"payload_attestation_due_bps": 7500,
+		"perfect_peerdas_enabled": false,
+		"prefunded_accounts": {},
+		"preregistered_validator_count": 0,
+		"preregistered_validator_keys_mnemonic": "giant issue aisle success illegal bike spike question tent bar rely arctic volcano long crawl hungry vocal artwork sniff fantasy very lucky have athlete",
+		"preset": "mainnet",
+		"proposer_inclusion_list_cutoff_bps": 9167,
+		"samples_per_slot": 8,
+		"seconds_per_slot": 12,
+		"shadowfork_block_height": "latest",
+		"shard_committee_period": 256,
+		"slot_duration_ms": 12000,
+		"sync_message_due_bps_gloas": 2500,
+		"target_blobs_per_block_electra": 6,
+		"validator_balance": 32,
+		"view_freeze_cutoff_bps": 7500,
+		"withdrawal_address": "0x8943545177806ED17B9F23F0a21ee5948eCaa776",
+		"withdrawal_type": "0x00"
+	},
+	"pre_funded_accounts": [
+		{
+			"address": "0x8943545177806ED17B9F23F0a21ee5948eCaa776",
+			"private_key": "bcdf20249abf0ed6d944c0288fad489e33f66b3960d9e6229c1cd214ed3bbe31"
+		},
+		{
+			"address": "0xE25583099BA105D9ec0A67f5Ae86D90e50036425",
+			"private_key": "39725efee3fb28614de3bacaffe4cc4bd8c436257e2c8bb887c4b5c4be45e76d"
+		},
+		{
+			"address": "0x614561D2d143621E126e87831AEF287678B442b8",
+			"private_key": "53321db7c1e331d93a11a41d16f004d7ff63972ec8ec7c25db329728ceeb1710"
+		},
+		{
+			"address": "0xf93Ee4Cf8c6c40b329b0c0626F28333c132CF241",
+			"private_key": "ab63b23eb7941c1251757e24b3d2350d2bc05c3c388d06f8fe6feafefb1e8c70"
+		},
+		{
+			"address": "0x802dCbE1B1A97554B4F50DB5119E37E8e7336417",
+			"private_key": "5d2344259f42259f82d2c140aa66102ba89b57b4883ee441a8b312622bd42491"
+		},
+		{
+			"address": "0xAe95d8DA9244C37CaC0a3e16BA966a8e852Bb6D6",
+			"private_key": "27515f805127bebad2fb9b183508bdacb8c763da16f54e0678b16e8f28ef3fff"
+		},
+		{
+			"address": "0x2c57d1CFC6d5f8E4182a56b4cf75421472eBAEa4",
+			"private_key": "7ff1a4c1d57e5e784d327c4c7651e952350bc271f156afb3d00d20f5ef924856"
+		},
+		{
+			"address": "0x741bFE4802cE1C4b5b00F9Df2F5f179A1C89171A",
+			"private_key": "3a91003acaf4c21b3953d94fa4a6db694fa69e5242b2e37be05dd82761058899"
+		},
+		{
+			"address": "0xc3913d4D8bAb4914328651C2EAE817C8b78E1f4c",
+			"private_key": "bb1d0f125b4fb2bb173c318cdead45468474ca71474e2247776b2b4c0fa2d3f5"
+		},
+		{
+			"address": "0x65D08a056c17Ae13370565B04cF77D2AfA1cB9FA",
+			"private_key": "850643a0224065ecce3882673c21f56bcf6eef86274cc21cadff15930b59fc8c"
+		},
+		{
+			"address": "0x3e95dFbBaF6B348396E6674C7871546dCC568e56",
+			"private_key": "94eb3102993b41ec55c241060f47daa0f6372e2e3ad7e91612ae36c364042e44"
+		},
+		{
+			"address": "0x5918b2e647464d4743601a865753e64C8059Dc4F",
+			"private_key": "daf15504c22a352648a71ef2926334fe040ac1d5005019e09f6c979808024dc7"
+		},
+		{
+			"address": "0x589A698b7b7dA0Bec545177D3963A2741105C7C9",
+			"private_key": "eaba42282ad33c8ef2524f07277c03a776d98ae19f581990ce75becb7cfa1c23"
+		},
+		{
+			"address": "0x4d1CB4eB7969f8806E2CaAc0cbbB71f88C8ec413",
+			"private_key": "3fd98b5187bf6526734efaa644ffbb4e3670d66f5d0268ce0323ec09124bff61"
+		},
+		{
+			"address": "0xF5504cE2BcC52614F121aff9b93b2001d92715CA",
+			"private_key": "5288e2f440c7f0cb61a9be8afdeb4295f786383f96f5e35eb0c94ef103996b64"
+		},
+		{
+			"address": "0xF61E98E7D47aB884C244E39E031978E33162ff4b",
+			"private_key": "f296c7802555da2a5a662be70e078cbd38b44f96f8615ae529da41122ce8db05"
+		},
+		{
+			"address": "0xf1424826861ffbbD25405F5145B5E50d0F1bFc90",
+			"private_key": "bf3beef3bd999ba9f2451e06936f0423cd62b815c9233dd3bc90f7e02a1e8673"
+		},
+		{
+			"address": "0xfDCe42116f541fc8f7b0776e2B30832bD5621C85",
+			"private_key": "6ecadc396415970e91293726c3f5775225440ea0844ae5616135fd10d66b5954"
+		},
+		{
+			"address": "0xD9211042f35968820A3407ac3d80C725f8F75c14",
+			"private_key": "a492823c3e193d6c595f37a18e3c06650cf4c74558cc818b16130b293716106f"
+		},
+		{
+			"address": "0xD8F3183DEF51A987222D845be228e0Bbb932C222",
+			"private_key": "c5114526e042343c6d1899cad05e1c00ba588314de9b96929914ee0df18d46b2"
+		},
+		{
+			"address": "0xafF0CA253b97e54440965855cec0A8a2E2399896",
+			"private_key": "04b9f63ecf84210c5366c66d68fa1f5da1fa4f634fad6dfc86178e4d79ff9e59"
+		}
+	]
+}
+
+⭐ us on GitHub - https://github.com/kurtosis-tech/kurtosis
+INFO[2025-09-08T14:54:11Z] ================================================= 
+INFO[2025-09-08T14:54:11Z] ||          Created enclave: evanode2          || 
+INFO[2025-09-08T14:54:11Z] ================================================= 
+Name:            evanode2
+UUID:            3315d99642c6
+Status:          RUNNING
+Creation Time:   Mon, 08 Sep 2025 14:53:41 UTC
+Flags:           
+
+========================================= Files Artifacts =========================================
+UUID           Name
+aa10965c8ac8   1-prysm-erigon-0-63
+b49de5b372e1   2-prysm-erigon-64-127
+171f62f85216   el_cl_genesis_data
+245baf5300c9   final-genesis-timestamp
+87463bfa60cc   genesis-el-cl-env-file
+95869a61fbc9   genesis_validators_root
+246eb192e55c   jwt_file
+a20e6cc65a39   keymanager_file
+582007444781   prysm-password
+28bf109db0f2   validator-ranges
+
+========================================== User Services ==========================================
+UUID           Name                                             Ports                                          Status
+86dab968b2fb   cl-1-prysm-erigon                                http: 3500/tcp -> http://127.0.0.1:32822       RUNNING
+                                                                metrics: 8080/tcp -> http://127.0.0.1:32825    
+                                                                profiling: 6060/tcp -> 127.0.0.1:32824         
+                                                                quic-discovery: 13000/udp -> 127.0.0.1:32781   
+                                                                rpc: 4000/tcp -> 127.0.0.1:32823               
+                                                                tcp-discovery: 13000/tcp -> 127.0.0.1:32826    
+                                                                udp-discovery: 12000/udp -> 127.0.0.1:32780    
+fdec0d08d11b   cl-2-prysm-erigon                                http: 3500/tcp -> http://127.0.0.1:32827       RUNNING
+                                                                metrics: 8080/tcp -> http://127.0.0.1:32830    
+                                                                profiling: 6060/tcp -> 127.0.0.1:32829         
+                                                                quic-discovery: 13000/udp -> 127.0.0.1:32783   
+                                                                rpc: 4000/tcp -> 127.0.0.1:32828               
+                                                                tcp-discovery: 13000/tcp -> 127.0.0.1:32831    
+                                                                udp-discovery: 12000/udp -> 127.0.0.1:32782    
+866410ecefa3   el-1-erigon-prysm                                engine-rpc: 8551/tcp -> 127.0.0.1:32815        RUNNING
+                                                                metrics: 9001/tcp -> http://127.0.0.1:32816    
+                                                                tcp-discovery: 30303/tcp -> 127.0.0.1:32817    
+                                                                torrent: 42069/udp -> 127.0.0.1:32777          
+                                                                udp-discovery: 30303/udp -> 127.0.0.1:32776    
+                                                                ws-rpc: 8545/tcp -> 127.0.0.1:32814            
+af0ac8cae2ec   el-2-erigon-prysm                                engine-rpc: 8551/tcp -> 127.0.0.1:32819        RUNNING
+                                                                metrics: 9001/tcp -> http://127.0.0.1:32820    
+                                                                tcp-discovery: 30303/tcp -> 127.0.0.1:32821    
+                                                                torrent: 42069/udp -> 127.0.0.1:32779          
+                                                                udp-discovery: 30303/udp -> 127.0.0.1:32778    
+                                                                ws-rpc: 8545/tcp -> 127.0.0.1:32818            
+3b9f54418f77   validator-key-generation-cl-validator-keystore   <none>                                         RUNNING
+a189d67d7f5f   vc-1-erigon-prysm                                metrics: 8080/tcp -> http://127.0.0.1:32833    RUNNING
+ffe570c3e966   vc-2-erigon-prysm                                metrics: 8080/tcp -> http://127.0.0.1:32832    RUNNING
+

@@ -4,3 +4,7 @@ Successfully created new keypair.
 Address:     0x9e3B04b8167F602A3B5f5E887163B2643D80e83e
 Private key: 0xa4fa94dec56511aa95a52e88ca3c340dd178d03e218a37b4c0d03708725da199
 
+cast wallet new -n 1
+Successfully created new keypair.
+Address:     0xD5ffAa51c9242d1c36b214f99a775442DF378D54
+Private key: 0xf16d54893dc8a1285e8e84f5f1faf10dac5f4b69a0418e7289e16ae5c8e900ce
