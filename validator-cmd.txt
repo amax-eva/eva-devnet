@@ -1,0 +1,53 @@
+
+kurtosis service inspect evanode2 vc-1-erigon-prysm
+
+Name: vc-1-erigon-prysm
+UUID: c7f6342245b9
+Status: RUNNING
+Image: gcr.io/offchainlabs/prysm/validator:stable
+Ports:
+  metrics: 8080/tcp -> http://127.0.0.1:32811
+ENTRYPOINT:
+  /validator
+CMD:
+  --accept-terms-of-use=true
+  --chain-config-file=/network-configs/config.yaml
+  --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776
+  --beacon-rest-api-provider=http://172.16.0.13:3500
+  --disable-monitoring=false
+  --monitoring-host=0.0.0.0
+  --monitoring-port=8080
+  --beacon-rpc-provider=172.16.0.13:4000
+  --wallet-dir=/validator-keys/prysm
+  --wallet-password-file=/prysm-password/prysm-password.txt
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+
+
+
+kurtosis service inspect evanode2 vc-2-erigon-prysm
+
+Name: vc-2-erigon-prysm
+UUID: 2bcac92d90e8
+Status: RUNNING
+Image: gcr.io/offchainlabs/prysm/validator:stable
+Ports:
+  metrics: 8080/tcp -> http://127.0.0.1:32810
+ENTRYPOINT:
+  /validator
+CMD:
+  --accept-terms-of-use=true
+  --chain-config-file=/network-configs/config.yaml
+  --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776
+  --beacon-rest-api-provider=http://172.16.0.14:3500
+  --disable-monitoring=false
+  --monitoring-host=0.0.0.0
+  --monitoring-port=8080
+  --beacon-rpc-provider=172.16.0.14:4000
+  --wallet-dir=/validator-keys/prysm
+  --wallet-password-file=/prysm-password/prysm-password.txt
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+

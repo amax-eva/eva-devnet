@@ -1,0 +1,80 @@
+
+kurtosis service inspect evanode2 el-1-erigon-prysm
+
+Name: el-1-erigon-prysm
+UUID: a00dfe49adb5
+Status: RUNNING
+Image: erigontech/erigon:latest
+Ports:
+  engine-rpc: 8551/tcp -> 127.0.0.1:32793
+  metrics: 9001/tcp -> http://127.0.0.1:32794
+  tcp-discovery: 30303/tcp -> 127.0.0.1:32795
+  torrent: 42069/udp -> 127.0.0.1:32769
+  udp-discovery: 30303/udp -> 127.0.0.1:32768
+  ws-rpc: 8545/tcp -> 127.0.0.1:32792
+ENTRYPOINT:
+  sh
+  -c
+CMD:
+  erigon init --datadir=/data/erigon/execution-data /network-configs/genesis.json && erigon --networkid=3151908 --log.console.verbosity=3 --datadir=/data/erigon/execution-data --port=30303 --http.api=eth,erigon,engine,web3,net,debug,trace,txpool,admin --http.vhosts=* --ws --allow-insecure-unlock --nat=extip:172.16.0.11 --http --http.addr=0.0.0.0 --http.corsdomain=* --http.port=8545 --authrpc.jwtsecret=/jwt/jwtsecret --authrpc.addr=0.0.0.0 --authrpc.port=8551 --authrpc.vhosts=* --externalcl --metrics --metrics.addr=0.0.0.0 --metrics.port=9001 --torrent.port=42069
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+
+kurtosis service inspect evanode2 el-2-erigon-prysm
+
+Name: el-2-erigon-prysm
+UUID: 9b3598bbacd5
+Status: RUNNING
+Image: erigontech/erigon:latest
+Ports:
+  engine-rpc: 8551/tcp -> 127.0.0.1:32797
+  metrics: 9001/tcp -> http://127.0.0.1:32798
+  tcp-discovery: 30303/tcp -> 127.0.0.1:32799
+  torrent: 42069/udp -> 127.0.0.1:32771
+  udp-discovery: 30303/udp -> 127.0.0.1:32770
+  ws-rpc: 8545/tcp -> 127.0.0.1:32796
+ENTRYPOINT:
+  sh
+  -c
+CMD:
+  erigon init --datadir=/data/erigon/execution-data /network-configs/genesis.json && erigon --networkid=3151908 --log.console.verbosity=3 --datadir=/data/erigon/execution-data --port=30303 --http.api=eth,erigon,engine,web3,net,debug,trace,txpool,admin --http.vhosts=* --ws --allow-insecure-unlock --nat=extip:172.16.0.12 --http --http.addr=0.0.0.0 --http.corsdomain=* --http.port=8545 --authrpc.jwtsecret=/jwt/jwtsecret --authrpc.addr=0.0.0.0 --authrpc.port=8551 --authrpc.vhosts=* --externalcl --metrics --metrics.addr=0.0.0.0 --metrics.port=9001 --torrent.port=42069 --bootnodes=enode://530ee0438220ae4c6edb7182ce84c94fad076dfa9d922965ed70b600b5cbc64bd7338e0287402e8879e1b2056f40e0e9c119d6555d26d09ddafe665d9d539fc6@172.16.0.11:30303
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+第1台
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":1}' http://localhost:32792
+
+{"jsonrpc":"2.0","id":1,"result":{"id":"8ff66e422cf3e87305f902201a6ded2cebd8d9ac9a5fe8134236497c9368e863","name":"erigon/v3.0.15-1a610b3f/linux-amd64/go1.23.11","enode":"enode://530ee0438220ae4c6edb7182ce84c94fad076dfa9d922965ed70b600b5cbc64bd7338e0287402e8879e1b2056f40e0e9c119d6555d26d09ddafe665d9d539fc6@172.16.0.11:30303","enr":"enr:-Je4QFvL7jVUQNDhcyyuO82J5Eq8x01NKXX8faTvmtyVN1vraSXmzFroZW-iGKTfa_xFnmb-vjJUhTs1mttux9P-SycFg2V0aMfGhMgbP8KAgmlkgnY0gmlwhKwQAAuJc2VjcDI1NmsxoQJTDuBDgiCuTG7bcYLOhMlPrQdt-p2SKWXtcLYAtcvGS4N0Y3CCdl-DdWRwgnZf","ip":"enode://530ee0438220ae4c6edb7182ce84c94fad076dfa9d922965ed70b600b5cbc64bd7338e0287402e8879e1b2056f40e0e9c119d6555d26d09ddafe665d9d539fc6@172.16.0.11:30303","ports":{"discovery":30303,"listener":30303},"listenAddr":"[::]:30303","protocols":{"eth":{"network":3151908,"difficulty":0,"genesis":"0xabb014c36d7f8ec5577f0a585b421b8753c333f91599eeb2855b70fbfada7046","config":{"chainName":"","chainId":3151908,"homesteadBlock":0,"eip150Block":0,"eip155Block":0,"byzantiumBlock":0,"constantinopleBlock":0,"petersburgBlock":0,"istanbulBlock":0,"berlinBlock":0,"londonBlock":0,"terminalTotalDifficulty":0,"terminalTotalDifficultyPassed":true,"mergeNetsplitBlock":0,"shanghaiTime":0,"cancunTime":0,"pragueTime":0,"blobSchedule":{"cancun":{"target":3,"max":6,"baseFeeUpdateFraction":3338477},"prague":{"target":6,"max":9,"baseFeeUpdateFraction":5007716}},"depositContractAddress":"0x00000000219ab540356cbb839cbe05303d7705fa"},"head":"0xd2bf50d4ce5828fbc34d1cdc3d70b6e64991a166a2616612d98bc95989513125"}}}}
+
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":1}' http://localhost:32792
+
+{"jsonrpc":"2.0","id":1,"result":[{"enode":"enode://affc68a5778bf1146d2a26f1f9a2721777288e5937c541230ab5b8e865473694cd9076a963f43362d635977ecb31bf5cdccb1b58a8dc0c5530cd5106085e8f01@172.16.0.12:47992","id":"affc68a5778bf1146d2a26f1f9a2721777288e5937c541230ab5b8e865473694cd9076a963f43362d635977ecb31bf5cdccb1b58a8dc0c5530cd5106085e8f01","name":"erigon/v3.0.15-1a610b3f/linux-amd64/go1.23.11","caps":["eth/68"],"network":{"localAddress":"172.16.0.11:30303","remoteAddress":"172.16.0.12:47992","inbound":true,"trusted":false,"static":false},"protocols":null}]}
+
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://localhost:32792
+
+{"jsonrpc":"2.0","id":1,"result":"0x1"}
+
+
+
+第2台
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":1}' http://localhost:32796
+
+{"jsonrpc":"2.0","id":1,"result":{"id":"7a694ddfa9ace61b8b25030e21ebbbb979da6ebe8aa01f93ec38d9d8758663a8","name":"erigon/v3.0.15-1a610b3f/linux-amd64/go1.23.11","enode":"enode://affc68a5778bf1146d2a26f1f9a2721777288e5937c541230ab5b8e865473694cd9076a963f43362d635977ecb31bf5cdccb1b58a8dc0c5530cd5106085e8f01@172.16.0.12:30303","enr":"enr:-Je4QIcZ9OcAYWX6EOhmw1w47briFgcH2QruzX_LczUS_MX5T0Xn20YaHDfdIyqd48XEwtU1mVMeu_AYBR3k3feGQwAFg2V0aMfGhMgbP8KAgmlkgnY0gmlwhKwQAAyJc2VjcDI1NmsxoQOv_Gild4vxFG0qJvH5onIXdyiOWTfFQSMKtbjoZUc2lIN0Y3CCdl-DdWRwgnZf","ip":"enode://affc68a5778bf1146d2a26f1f9a2721777288e5937c541230ab5b8e865473694cd9076a963f43362d635977ecb31bf5cdccb1b58a8dc0c5530cd5106085e8f01@172.16.0.12:30303","ports":{"discovery":30303,"listener":30303},"listenAddr":"[::]:30303","protocols":{"eth":{"network":3151908,"difficulty":0,"genesis":"0xabb014c36d7f8ec5577f0a585b421b8753c333f91599eeb2855b70fbfada7046","config":{"chainName":"","chainId":3151908,"homesteadBlock":0,"eip150Block":0,"eip155Block":0,"byzantiumBlock":0,"constantinopleBlock":0,"petersburgBlock":0,"istanbulBlock":0,"berlinBlock":0,"londonBlock":0,"terminalTotalDifficulty":0,"terminalTotalDifficultyPassed":true,"mergeNetsplitBlock":0,"shanghaiTime":0,"cancunTime":0,"pragueTime":0,"blobSchedule":{"cancun":{"target":3,"max":6,"baseFeeUpdateFraction":3338477},"prague":{"target":6,"max":9,"baseFeeUpdateFraction":5007716}},"depositContractAddress":"0x00000000219ab540356cbb839cbe05303d7705fa"},"head":"0x19685d9fb5f93f06cfe50810d11b650646a711b872fe4051bb6a7e529316456f"}}}}
+
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":1}' http://localhost:32796
+
+{"jsonrpc":"2.0","id":1,"result":[{"enode":"enode://530ee0438220ae4c6edb7182ce84c94fad076dfa9d922965ed70b600b5cbc64bd7338e0287402e8879e1b2056f40e0e9c119d6555d26d09ddafe665d9d539fc6@172.16.0.11:30303","id":"530ee0438220ae4c6edb7182ce84c94fad076dfa9d922965ed70b600b5cbc64bd7338e0287402e8879e1b2056f40e0e9c119d6555d26d09ddafe665d9d539fc6","name":"erigon/v3.0.15-1a610b3f/linux-amd64/go1.23.11","caps":["eth/68"],"network":{"localAddress":"172.16.0.12:47992","remoteAddress":"172.16.0.11:30303","inbound":false,"trusted":false,"static":false},"protocols":null}]}
+
+
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' http://localhost:32796
+
+{"jsonrpc":"2.0","id":1,"result":"0x1"}
+
