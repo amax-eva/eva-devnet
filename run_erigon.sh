@@ -4,5 +4,4 @@
 
 nohup erigon --config $PWD/network-configs/erigon-config.yaml \
   --datadir=$PWD/erigon/execution-data \
-  --authrpc.jwtsecret=$PWD/jwt.hex \
-  --nat=extip:$NAT_EXTIP > $PWD/erigon.log 2>&1 &
+  --authrpc.jwtsecret=$PWD/jwt.hex > $PWD/erigon.log 2>&1 &

@@ -2,20 +2,20 @@
 # export NAT_EXTIP=18.162.236.244
 
 
-nohup ./prysm.sh beacon-chain --accept-terms-of-use=true \
+nohup ./prysm.sh beacon-chain --chain-id=2248 --network-id=2248 --accept-terms-of-use=true \
   --datadir=$PWD/prysm/beacon-data/ \
-  --execution-endpoint=http://$NAT_EXTIP:8551 \
+  --execution-endpoint=http://127.0.0.1:8551 \
   --rpc-host=0.0.0.0 \
   --rpc-port=4000 \
   --http-host=0.0.0.0 \
   --http-cors-domain='*' \
   --http-port=3500 \
-  --p2p-host-ip=$NAT_EXTIP \
+  --p2p-host-ip=127.0.0.1 \
   --p2p-tcp-port=13000 \
   --p2p-udp-port=12000 \
   --p2p-quic-port=13000 \
   --min-sync-peers=0 \
-  --verbosity=info \
+  --verbosity=debug \
   --slots-per-archive-point=32 \
   --suggested-fee-recipient=0xF84AE3A59D9c8a08b9308Ba4D3d0341135c51989 \
   --jwt-secret=$PWD/jwt.hex \
