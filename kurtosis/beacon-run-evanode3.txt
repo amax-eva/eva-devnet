@@ -1,0 +1,78 @@
+
+kurtosis service inspect evanode3 cl-1-prysm-erigon
+
+Name: cl-1-prysm-erigon
+UUID: 8bc68063b8e6
+Status: RUNNING
+Image: gcr.io/offchainlabs/prysm/beacon-chain:stable
+Ports:
+  http: 3500/tcp -> http://127.0.0.1:32847
+  metrics: 8080/tcp -> http://127.0.0.1:32850
+  profiling: 6060/tcp -> 127.0.0.1:32849
+  quic-discovery: 13000/udp -> 127.0.0.1:32791
+  rpc: 4000/tcp -> 127.0.0.1:32848
+  tcp-discovery: 13000/tcp -> 127.0.0.1:32851
+  udp-discovery: 12000/udp -> 127.0.0.1:32790
+ENTRYPOINT:
+  sh
+  -c
+CMD:
+  exec /beacon-chain --accept-terms-of-use=true --datadir=/data/prysm/beacon-data/ --execution-endpoint=http://172.16.4.11:8551 --rpc-host=0.0.0.0 --rpc-port=4000 --http-host=0.0.0.0 --http-cors-domain=* --http-port=3500 --p2p-host-ip=172.16.4.14 --p2p-tcp-port=13000 --p2p-udp-port=12000 --p2p-quic-port=13000 --min-sync-peers=0 --verbosity=info --slots-per-archive-point=32 --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776 --jwt-secret=/jwt/jwtsecret --disable-monitoring=false --monitoring-host=0.0.0.0 --monitoring-port=8080 --pprof --pprofaddr=0.0.0.0 --pprofport=6060 --p2p-static-id=true --chain-config-file=/network-configs/config.yaml --genesis-state=/network-configs/genesis.ssz --contract-deployment-block=0
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+
+
+
+
+kurtosis service inspect evanode3 cl-2-prysm-erigon
+
+Name: cl-2-prysm-erigon
+UUID: fe161d67d316
+Status: RUNNING
+Image: gcr.io/offchainlabs/prysm/beacon-chain:stable
+Ports:
+  http: 3500/tcp -> http://127.0.0.1:32857
+  metrics: 8080/tcp -> http://127.0.0.1:32860
+  profiling: 6060/tcp -> 127.0.0.1:32859
+  quic-discovery: 13000/udp -> 127.0.0.1:32795
+  rpc: 4000/tcp -> 127.0.0.1:32858
+  tcp-discovery: 13000/tcp -> 127.0.0.1:32861
+  udp-discovery: 12000/udp -> 127.0.0.1:32794
+ENTRYPOINT:
+  sh
+  -c
+CMD:
+  exec /beacon-chain --accept-terms-of-use=true --datadir=/data/prysm/beacon-data/ --execution-endpoint=http://172.16.4.12:8551 --rpc-host=0.0.0.0 --rpc-port=4000 --http-host=0.0.0.0 --http-cors-domain=* --http-port=3500 --p2p-host-ip=172.16.4.15 --p2p-tcp-port=13000 --p2p-udp-port=12000 --p2p-quic-port=13000 --min-sync-peers=0 --verbosity=info --slots-per-archive-point=32 --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776 --jwt-secret=/jwt/jwtsecret --disable-monitoring=false --monitoring-host=0.0.0.0 --monitoring-port=8080 --pprof --pprofaddr=0.0.0.0 --pprofport=6060 --p2p-static-id=true --chain-config-file=/network-configs/config.yaml --genesis-state=/network-configs/genesis.ssz --contract-deployment-block=0 
+  --bootstrap-node=enr:-Mq4QC5P5fJaH9QEzKQFhOy5vgWTEYmrGfAwX_W4Zv0Lqi3RckvsGz4tlLrzYMy5dRjojsqhDI8h_1dXgvwnDN-SAeGGAZksHGMzh2F0dG5ldHOIDAAAAAAAAACEZXRoMpCyfSTvcAAAOP__________gmlkgnY0gmlwhKwQBA6EcXVpY4IyyIlzZWNwMjU2azGhAhY8JJMauwJtyBz0lAi2Ybz529hXLSuIpQSe-Ah32-niiHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+
+
+
+
+kurtosis service inspect evanode3 cl-3-prysm-erigon
+
+Name: cl-3-prysm-erigon
+UUID: 4c2a3173a853
+Status: RUNNING
+Image: gcr.io/offchainlabs/prysm/beacon-chain:stable
+Ports:
+  http: 3500/tcp -> http://127.0.0.1:32852
+  metrics: 8080/tcp -> http://127.0.0.1:32855
+  profiling: 6060/tcp -> 127.0.0.1:32854
+  quic-discovery: 13000/udp -> 127.0.0.1:32793
+  rpc: 4000/tcp -> 127.0.0.1:32853
+  tcp-discovery: 13000/tcp -> 127.0.0.1:32856
+  udp-discovery: 12000/udp -> 127.0.0.1:32792
+ENTRYPOINT:
+  sh
+  -c
+CMD:
+  exec /beacon-chain --accept-terms-of-use=true --datadir=/data/prysm/beacon-data/ --execution-endpoint=http://172.16.4.13:8551 --rpc-host=0.0.0.0 --rpc-port=4000 --http-host=0.0.0.0 --http-cors-domain=* --http-port=3500 --p2p-host-ip=172.16.4.16 --p2p-tcp-port=13000 --p2p-udp-port=12000 --p2p-quic-port=13000 --min-sync-peers=0 --verbosity=info --slots-per-archive-point=32 --suggested-fee-recipient=0x8943545177806ED17B9F23F0a21ee5948eCaa776 --jwt-secret=/jwt/jwtsecret --disable-monitoring=false --monitoring-host=0.0.0.0 --monitoring-port=8080 --pprof --pprofaddr=0.0.0.0 --pprofport=6060 --p2p-static-id=true --chain-config-file=/network-configs/config.yaml --genesis-state=/network-configs/genesis.ssz --contract-deployment-block=0 
+  --bootstrap-node=enr:-Mq4QC5P5fJaH9QEzKQFhOy5vgWTEYmrGfAwX_W4Zv0Lqi3RckvsGz4tlLrzYMy5dRjojsqhDI8h_1dXgvwnDN-SAeGGAZksHGMzh2F0dG5ldHOIDAAAAAAAAACEZXRoMpCyfSTvcAAAOP__________gmlkgnY0gmlwhKwQBA6EcXVpY4IyyIlzZWNwMjU2azGhAhY8JJMauwJtyBz0lAi2Ybz529hXLSuIpQSe-Ah32-niiHN5bmNuZXRzAIN0Y3CCMsiDdWRwgi7g
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+
