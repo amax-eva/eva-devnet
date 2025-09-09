@@ -1,0 +1,74 @@
+
+kurtosis service inspect evanode3 el-1-erigon-prysm
+
+Name: el-1-erigon-prysm
+UUID: 307f7ff602b3
+Status: RUNNING
+Image: erigontech/erigon:latest
+Ports:
+  engine-rpc: 8551/tcp -> 127.0.0.1:32836
+  metrics: 9001/tcp -> http://127.0.0.1:32837
+  tcp-discovery: 30303/tcp -> 127.0.0.1:32838
+  torrent: 42069/udp -> 127.0.0.1:32785
+  udp-discovery: 30303/udp -> 127.0.0.1:32784
+  ws-rpc: 8545/tcp -> 127.0.0.1:32835
+ENTRYPOINT:
+  sh
+  -c
+CMD:
+  erigon init --datadir=/data/erigon/execution-data /network-configs/genesis.json && 
+  erigon --networkid=3151908 --log.console.verbosity=3 --datadir=/data/erigon/execution-data --port=30303 --http.api=eth,erigon,engine,web3,net,debug,trace,txpool,admin --http.vhosts=* --ws --allow-insecure-unlock --nat=extip:172.16.4.11 --http --http.addr=0.0.0.0 --http.corsdomain=* --http.port=8545 --authrpc.jwtsecret=/jwt/jwtsecret --authrpc.addr=0.0.0.0 --authrpc.port=8551 --authrpc.vhosts=* --externalcl --metrics --metrics.addr=0.0.0.0 --metrics.port=9001 --torrent.port=42069
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+
+
+kurtosis service inspect evanode3 el-2-erigon-prysm
+
+Name: el-2-erigon-prysm
+UUID: 4403156ebc4c
+Status: RUNNING
+Image: erigontech/erigon:latest
+Ports:
+  engine-rpc: 8551/tcp -> 127.0.0.1:32844
+  metrics: 9001/tcp -> http://127.0.0.1:32845
+  tcp-discovery: 30303/tcp -> 127.0.0.1:32846
+  torrent: 42069/udp -> 127.0.0.1:32789
+  udp-discovery: 30303/udp -> 127.0.0.1:32788
+  ws-rpc: 8545/tcp -> 127.0.0.1:32843
+ENTRYPOINT:
+  sh
+  -c
+CMD:
+  erigon init --datadir=/data/erigon/execution-data /network-configs/genesis.json && 
+  erigon --networkid=3151908 --log.console.verbosity=3 --datadir=/data/erigon/execution-data --port=30303 --http.api=eth,erigon,engine,web3,net,debug,trace,txpool,admin --http.vhosts=* --ws --allow-insecure-unlock --nat=extip:172.16.4.12 --http --http.addr=0.0.0.0 --http.corsdomain=* --http.port=8545 --authrpc.jwtsecret=/jwt/jwtsecret --authrpc.addr=0.0.0.0 --authrpc.port=8551 --authrpc.vhosts=* --externalcl --metrics --metrics.addr=0.0.0.0 --metrics.port=9001 --torrent.port=42069 
+  --bootnodes=enode://7995c1d8f9a9c69f3a5ae85869a3a5ee2f08c95155cb4d435436366a8d1b8d15f15f92697eca30ac1ae14332de07ac76f902913aff9acef0b4406548915b14da@172.16.4.11:30303
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+
+
+kurtosis service inspect evanode3 el-3-erigon-prysm
+
+Name: el-3-erigon-prysm
+UUID: 8e75c3b93e37
+Status: RUNNING
+Image: erigontech/erigon:latest
+Ports:
+  engine-rpc: 8551/tcp -> 127.0.0.1:32840
+  metrics: 9001/tcp -> http://127.0.0.1:32841
+  tcp-discovery: 30303/tcp -> 127.0.0.1:32842
+  torrent: 42069/udp -> 127.0.0.1:32787
+  udp-discovery: 30303/udp -> 127.0.0.1:32786
+  ws-rpc: 8545/tcp -> 127.0.0.1:32839
+ENTRYPOINT:
+  sh
+  -c
+CMD:
+  erigon init --datadir=/data/erigon/execution-data /network-configs/genesis.json && 
+  erigon --networkid=3151908 --log.console.verbosity=3 --datadir=/data/erigon/execution-data --port=30303 --http.api=eth,erigon,engine,web3,net,debug,trace,txpool,admin --http.vhosts=* --ws --allow-insecure-unlock --nat=extip:172.16.4.13 --http --http.addr=0.0.0.0 --http.corsdomain=* --http.port=8545 --authrpc.jwtsecret=/jwt/jwtsecret --authrpc.addr=0.0.0.0 --authrpc.port=8551 --authrpc.vhosts=* --externalcl --metrics --metrics.addr=0.0.0.0 --metrics.port=9001 --torrent.port=42069 
+  --bootnodes=enode://7995c1d8f9a9c69f3a5ae85869a3a5ee2f08c95155cb4d435436366a8d1b8d15f15f92697eca30ac1ae14332de07ac76f902913aff9acef0b4406548915b14da@172.16.4.11:30303
+ENV:
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
