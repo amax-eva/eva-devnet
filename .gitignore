@@ -1,3 +1,7 @@
 /dist
 /erigon/execution-data
 /prysm/beacon-data
+/erigon/execution-data2
+/prysm/beacon-data2
+/prysm/beacon-data_bak
+*.log
